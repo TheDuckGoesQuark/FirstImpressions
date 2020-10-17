@@ -1,3 +1,6 @@
+# FirstImpressions
+Totally not guess who but with subjective gameplay like in that tiktok I saw once
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

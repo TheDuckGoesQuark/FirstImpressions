@@ -1,7 +1,12 @@
 import React from 'react';
+import styles from './HomeMenu.module.css';
 
 const MenuItem: React.FunctionComponent = (props) => {
-    return <div>{props.children}</div>
+    return <div className={styles.menuOptionContainer}>
+        <div className={styles.menuOption}>
+            {props.children}
+        </div>
+    </div>
 }
 
 const PlayerNameInput = () => {
@@ -24,11 +29,15 @@ const JoinRoomCodeOption = () => {
 }
 
 const HomeMenu = () => {
-    return <div>
-        <PlayerNameInput/>
-        <HostPrivateGameOption/>
-        <JoinRandomGameOption/>
-        <JoinRoomCodeOption/>
+    return <div className={styles.homeContainer}>
+        <div className={styles.nameInputContainer}>
+            <PlayerNameInput/>
+        </div>
+        <div className={styles.menuContainer}>
+            <MenuItem><HostPrivateGameOption/></MenuItem>
+            <MenuItem><JoinRandomGameOption/></MenuItem>
+            <MenuItem><JoinRoomCodeOption/></MenuItem>
+        </div>
     </div>
 }
 
