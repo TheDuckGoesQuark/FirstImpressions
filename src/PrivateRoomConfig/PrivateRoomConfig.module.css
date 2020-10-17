@@ -1,9 +1,9 @@
-.homeContainer {
+.configViewContainer {
     height: 100%;
     width: 100%;
 }
 
-.nameInputContainer {
+.titleContainer {
     display: flex;
     margin: 5em auto;
     background-color: cornflowerblue;
@@ -13,12 +13,22 @@
     width: 60vw;
 }
 
-.menuContainer {
+.startButtonContainer {
+    display: flex;
+    margin: 5em auto;
+    background-color: cornflowerblue;
+    justify-content: center;
+    align-items: center;
+    height: 4em;
+    width: 60vw;
+}
+
+.settingsListContainer {
     justify-content: center;
     align-items: center;
 }
 
-.menuOptionContainer {
+.settingListItem {
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -30,5 +40,3 @@
     width: 60vw;
 }
 
-.menuOption {
-}

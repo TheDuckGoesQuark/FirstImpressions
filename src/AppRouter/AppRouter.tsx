@@ -1,12 +1,12 @@
 import React from 'react';
 
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import HomeMenu from "../HomeMenu/HomeMenu";
+import PrivateRoomConfig from "../PrivateRoomConfig/PrivateRoomConfig";
 
 const AppRouter = () => {
-    return <Router>
-        <Route path="/" exact component={HomeMenu}/>
-    </Router>
+    const home = <HomeMenu/>
+    const privateRoomConfig = <PrivateRoomConfig/>
+    return privateRoomConfig;
 }
 
 export default AppRouter
