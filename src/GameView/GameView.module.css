@@ -1,0 +1,53 @@
+.container {
+    height: 100%;
+}
+
+.boardViewContainer {
+    position: fixed;
+    height: 70vh;
+}
+
+.boardContainer {
+    position: relative;
+    max-width: 100%;
+    height: 40%;
+}
+
+.playerOneBoardContainer {
+    margin-left: 2%;
+    margin-right: 2%;
+    composes: boardContainer;
+    background-color: cornflowerblue;
+}
+
+.playerTwoBoardContainer {
+    margin: 3% 4% 10% 4%;
+    composes: boardContainer;
+    background-color: crimson;
+}
+
+.faceGrid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1vw;
+    height: 100%;
+}
+
+.faceContainer {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #61dafb;
+    overflow: hidden;
+}
+
+.faceName {
+    display: block;
+    height: 15%;
+}
+
+.faceImage {
+    max-height: 85%;
+}

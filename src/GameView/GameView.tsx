@@ -1,24 +1,10 @@
 import React from 'react'
+import styles from './GameView.module.css'
+import zort from './faces/0.jpg'
 
 interface FaceContainerProps {
-    image: string,
+    image: JSX.Element,
     name: string,
-}
-
-const FacesGrid: React.FC<{ faces: FaceContainerProps[] }> = ({faces}) => {
-    const faceGrid = faces.map((face, idx) =>
-        <div key={idx}>
-            <FaceContainer image={face.image} name={face.name}/>
-        </div>
-    );
-    return <div>{faceGrid}</div>;
-}
-
-const FaceContainer = ({image, name}: FaceContainerProps) => {
-    return <div>
-        {image}
-        {name}
-    </div>
 }
 
 function randomString(length: number) {
@@ -29,15 +15,46 @@ const generateFaces = (): Array<FaceContainerProps> => {
     let faces: Array<FaceContainerProps> = []
     let numFaces = 3 * 8;
     for (let i = 0; i < numFaces; i++) {
-        faces.push({name: randomString(7), image: randomString(7)})
+        let imgElement = <img className={styles.faceImage} src={zort} alt={"zort"}/>
+        faces.push({name: randomString(7), image: imgElement})
     }
     return faces;
 }
 
+const FacesGrid: React.FC<{ faces: FaceContainerProps[] }> = ({faces}) => {
+    const faceGrid = faces.map((face, idx) =>
+        <FaceContainer image={face.image} name={face.name}/>
+    );
+    return <div className={styles.faceGrid}>{faceGrid}</div>;
+}
+
+const PlayerOneFacesGrid = () => {
+    return <div className={styles.playerOneBoardContainer}>
+        <FacesGrid faces={generateFaces()}/>
+    </div>
+}
+
+const PlayerTwoFacesGrid = () => {
+    return <div className={styles.playerTwoBoardContainer}>
+        <FacesGrid faces={generateFaces()}/>
+    </div>
+}
+
+
+const FaceContainer = ({image, name}: FaceContainerProps) => {
+    return <div className={styles.faceContainer}>
+        {image}
+        <span className={styles.faceName}>{name}</span>
+    </div>
+}
+
 const GameView = () => {
     let faces: Array<FaceContainerProps> = generateFaces();
-    return <div>
-        <FacesGrid faces={faces}/>
+    return <div className={styles.container}>
+        <div className={styles.boardViewContainer}>
+            <PlayerTwoFacesGrid/>
+            <PlayerOneFacesGrid/>
+        </div>
     </div>
 }
 
